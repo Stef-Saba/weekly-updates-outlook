@@ -10,7 +10,86 @@ This project automates the preparation step while keeping the final email under 
 
 CSV in → Outlook draft out.
 
-## Architecture
+## Architecture 
+
+The project follows a simple automation pipeline:
+
+```text
+                         USER
+                          |
+                          v
+              Weekly Updates CSV File
+                          |
+                          v
+        +--------------------------------+
+        |                                |
+        |     CSV Processing Engine      |
+        |                                |
+        | - Reads structured updates     |
+        | - Extracts statuses            |
+        | - Evaluates update content     |
+        |                                |
+        +--------------------------------+
+                          |
+                          v
+        +--------------------------------+
+        |                                |
+        |       Classification Logic     |
+        |                                |
+        |  [MAJOR]                       |
+        |      |                         |
+        |      v                         |
+        | Leadership Awareness           |
+        |                                |
+        |  [ADOPTION]                    |
+        |      |                         |
+        |      v                         |
+        | Highlights & Achievements      |
+        |                                |
+        |  Status = ✅                   |
+        |      |                         |
+        |      v                         |
+        | Leadership Visibility          |
+        |                                |
+        +--------------------------------+
+                          |
+                          v
+        +--------------------------------+
+        |                                |
+        |       HTML Email Generator     |
+        |                                |
+        | - Builds email structure       |
+        | - Applies email-safe HTML      |
+        |                                |
+        +--------------------------------+
+                          |
+                          v
+                 Outlook Draft
+                          |
+                          v
+              Review → Edit → Send
+
+Then also add the project file architecture:
+
+```markdown
+## Project structure
+
+```text
+weekly-updates-outlook
+
+├── sample_weekly_updates.csv
+│       Input delivery updates
+│
+├── generate_update.py
+│       Processing engine
+│       Classification rules
+│       HTML generation
+│
+├── outlook_sender.py
+│       Outlook draft creation
+│
+└── README.md
+        Documentation
 
 ## Update logic
 
