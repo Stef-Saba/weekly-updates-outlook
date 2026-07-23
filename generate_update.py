@@ -4,12 +4,6 @@ from outlook_sender import create_outlook_draft
 INPUT_FILE = "sample_weekly_update.csv"
 OUTPUT_FILE = "leadership_update.html"
 
-EMAIL_SUBJECT = "Weekly Leadership Update"
-
-DASHBOARD_TITLE = "Leadership Dashboard"
-DASHBOARD_SUBTITLE = "Weekly Team Update"
-
-TAGLINE = "Automated leadership communication engine"
 
 
 leadership_awareness = []
